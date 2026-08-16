@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Baciolini ai miei amorini</title>
+
+    <meta name="description"
+          content="Un piccolo ringraziamento ad ogni cuoricino">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+        :root {
+            --cream: #faf7f2;
+            --paper: #fffdf9;
+            --dark: #292623;
+            --muted: #716b65;
+            --accent: #a45d52;
+            --accent-light: #ead8d2;
+            --gold: #b9945a;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: var(--cream);
+            color: var(--dark);
+            line-height: 1.7;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+
+            background: rgba(250, 247, 242, 0.92);
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid rgba(41, 38, 35, 0.08);
+        }
+
+        .nav-container {
+            max-width: 1050px;
+            margin: auto;
+            padding: 16px 24px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: "Playfair Display", serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--dark);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color .2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            padding: 150px 24px 90px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            background:
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(164, 93, 82, 0.09),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 80% 70%,
+                    rgba(185, 148, 90, 0.10),
+                    transparent 35%
+                );
+        }
+
+        .hero-content {
+            max-width: 780px;
+        }
+
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 12px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 22px;
+        }
+
+        h1 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(52px, 9vw, 92px);
+            line-height: 1.05;
+            font-weight: 600;
+            margin-bottom: 28px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: auto;
+            font-size: 18px;
+            color: var(--muted);
+        }
+
+        .scroll-button {
+            display: inline-block;
+            margin-top: 45px;
+
+            padding: 13px 25px;
+            border-radius: 50px;
+
+            background: var(--dark);
+            color: white;
+            text-decoration: none;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            transition:
+                transform .2s ease,
+                background .2s ease;
+        }
+
+        .scroll-button:hover {
+            transform: translateY(-3px);
+            background: var(--accent);
+        }
+
+        /* SECTIONS */
+
+        section {
+            max-width: 1050px;
+            margin: auto;
+            padding: 100px 24px;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-heading span {
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .section-heading h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(38px, 6vw, 58px);
+            font-weight: 600;
+        }
+
+        .section-heading p {
+            max-width: 650px;
+            margin: 15px auto 0;
+            color: var(--muted);
+        }
+
+        /* CARDS */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--paper);
+            border: 1px solid rgba(41, 38, 35, 0.08);
+            border-radius: 20px;
+
+            padding: 32px;
+
+            box-shadow:
+                0 10px 35px rgba(41, 38, 35, 0.04);
+
+            transition:
+                transform .25s ease,
+                box-shadow .25s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+
+            box-shadow:
+                0 18px 45px rgba(41, 38, 35, 0.09);
+        }
+
+        .card-number {
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: var(--accent-light);
+            color: var(--accent);
+
+            font-weight: 700;
+            font-size: 14px;
+
+            margin-bottom: 22px;
+        }
+
+        .card h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        .names {
+            margin-top: 20px;
+            padding-top: 18px;
+
+            border-top: 1px solid rgba(41, 38, 35, 0.08);
+
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        /* SPECIAL MESSAGE */
+
+        .message {
+            max-width: 800px;
+            margin: 30px auto 0;
+
+            padding: 55px 35px;
+
+            background: var(--dark);
+            color: white;
+
+            border-radius: 25px;
+
+            text-align: center;
+        }
+
+        .message .quote {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(27px, 5vw, 40px);
+            line-height: 1.3;
+        }
+
+        .message small {
+            display: block;
+            margin-top: 22px;
+            color: #c8c1ba;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 60px 24px;
+
+            text-align: center;
+
+            background: var(--dark);
+            color: #d8d2cc;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        footer p {
+            font-size: 13px;
+            margin-top: 8px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            .nav-container {
+                justify-content: center;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 130px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            section {
+                padding: 75px 18px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                padding: 27px;
+            }
+
+            .message {
+                padding: 40px 25px;
+            }
+        }
+
+        /* ANIMAZIONE */
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content {
+            animation: appear .9s ease both;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+        <div class="nav-container">
+
+            <a href="#home" class="logo">
+                Grazie di cuore
+            </a>
+
+            <ul class="nav-links">
+                <li>
+                    <a href="#amici">Amiche e amici</a>
+                </li>
+
+                <li>
+                    <a href="#famiglia">Famiglia</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+
+    <!-- HERO -->
+
+    <header class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="eyebrow">
+                Un piccolo ringraziamento
+            </div>
+
+            <h1>
+                Un percorso è terminato, ma già da domani dovrò rimettermi all'opera.
+            </h1>
+
+            <p>
+                ---
+            </p>
+
+            <a href="#amici" class="scroll-button">
+                Scopri i ringraziamenti ↓
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- AMICHE E AMICI -->
+
+    <section id="amici">
+
+        <div class="section-heading">
+
+            <span>Capitolo I</span>
+
+            <h2>il mio Amore</h2>
+
+            <p>
+                asd
+            </p>
+
+        </div>
+
+
+        <div class="cards">
+
+            <article class="card">
+
+                <div class="card-number">
+                    01
+                </div>
+
+                <h3>
+                    Le amicizie di sempre
+                </h3>
+
+                <p>
+                    A chi mi conosce da prima di questa laurea,
+                    da prima dell'università e forse anche da
+                    prima che sapessi davvero cosa stessi facendo.
+                    Grazie per esserci ancora.
+                </p>
+
+                <div class="names">
+                    Inserisci qui i nomi ❤️
+                </div>
+
+            </article>
+
+
+            <article class="card">
+
+                <div class="card-number">
+                    02
+                </div>
+
+                <h3>
+                    Le persone incontrate lungo il percorso
+                </h3>
+
+                <p>
+                    A chi ho incontrato durante questi anni e che,
+                    in modi diversi, ha reso questo percorso più
+                    leggero, divertente e indimenticabile.
+                </p>
+
+                <div class="names">
+                    Inserisci qui i nomi ✨
+                </div>
+
+            </article>
+
+
+            <article class="card">
+
+                <div class="card-number">
+                    03
+                </div>
+
+                <h3>
+                    Le serate, le risate e i disastri
+                </h3>
+
+                <p>
+                    Per tutte quelle volte in cui avremmo dovuto
+                    studiare e invece abbiamo fatto tutt'altro.
+                    Probabilmente sono proprio questi i ricordi
+                    che porterò con me più a lungo.
+                </p>
+
+                <div class="names">
+                    Inserisci qui i nomi 🥂
+                </div>
+
+            </article>
+
+
+            <article class="card">
+
+                <div class="card-number">
+                    04
+                </div>
+
+                <h3>
+                    Grazie per esserci stati
+                </h3>
+
+                <p>
+                    Anche quando non ve ne siete accorti,
+                    anche con un messaggio, una telefonata,
+                    una battuta o semplicemente con la vostra
+                    presenza avete fatto la differenza.
+                </p>
+
+                <div class="names">
+                    Questo spazio è vostro 💌
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- MESSAGGIO -->
+
+    <div class="message">
+
+        <div class="quote">
+            "Le persone che incontriamo
+            lungo la strada sono parte
+            della strada stessa."
+        </div>
+
+        <small>
+            Grazie per aver fatto parte del mio percorso.
+        </small>
+
+    </div>
+
+
+    <!-- FAMIGLIA -->
+
+    <section id="famiglia">
+
+        <div class="section-heading">
+
+            <span>Capitolo II</span>
+
+            <h2>Famiglia</h2>
+
+            <p>
+                Alla mia famiglia, che c'è stata prima,
+                durante e dopo ogni esame, ogni momento difficile
+                e ogni piccolo traguardo.
+            </p>
+
+        </div>
+
+
+        <div class="cards">
+
+            <article class="card">
+
+                <div class="card-number">
+                    01
+                </div>
+
+                <h3>
+                    Mamma & papà
+                </h3>
+
+                <p>
+                    Grazie per aver creduto in me anche quando
+                    io per primo facevo fatica a farlo.
+                    Per il sostegno, la pazienza, le telefonate,
+                    i consigli e tutto quello che non riuscirei
+                    mai a racchiudere in poche righe.
+                </p>
+
+                <div class="names">
+                    Con tutto il mio amore ❤️
+                </div>
+
+            </article>
+
+
+            <article class="card">
+
+                <div class="card-number">
+                    02
+                </div>
+
+                <h3>
+                    Nonni
+                </h3>
+
+                <p>
+                    Per l'affetto, le parole, i ricordi e quella
+                    sensazione di avere sempre un posto in cui
+                    tornare.
+                </p>
+
+                <div class="names">
+                    Grazie di cuore.
+                </div>
+
+            </article>
+
+
+            <article class="card">
+
+                <div class="card-number">
+                    03
+                </div>
+
+                <h3>
+                    Fratelli e sorelle
+                </h3>
+
+                <p>
+                    Per tutte le volte che mi avete fatto ridere,
+                    arrabbiare, tornare con i piedi per terra
+                    e ricordato che, alla fine, siamo sempre noi.
+                </p>
+
+                <div class="names">
+                    Inserisci qui i nomi 🫶
+                </div>
+
+            </article>
+
+
+            <article class="card">
+
+                <div class="card-number">
+                    04
+                </div>
+
+                <h3>
+                    Tutta la famiglia
+                </h3>
+
+                <p>
+                    A chi magari non compare nelle fotografie
+                    o nei ricordi più evidenti, ma ha contribuito
+                    comunque a rendere questo viaggio quello che è.
+                </p>
+
+                <div class="names">
+                    Grazie a tutti.
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONCLUSIONE -->
+
+    <section>
+
+        <div class="section-heading">
+
+            <span>Fine?</span>
+
+            <h2>Solo l'inizio.</h2>
+
+            <p>
+                Questa pagina è solo un piccolo modo per dire
+                una cosa molto semplice.
+            </p>
+
+        </div>
+
+
+        <div class="message">
+
+            <div class="quote">
+                Grazie per aver fatto parte
+                di questa storia.
+            </div>
+
+            <small>
+                E grazie per tutto quello che verrà.
+            </small>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <strong>
+            🎓 Laurea 2026
+        </strong>
+
+        <p>
+            Realizzato con gratitudine, affetto e un po' di HTML.
+        </p>
+
+    </footer>
+
+
+</body>
+</html>
